@@ -67,7 +67,7 @@ class Player(sprite.Sprite):
     def collide(self, xvel, yvel, platforms):
         for p in platforms:
             if sprite.collide_rect(self, p):
-                if isinstance(p, BlockDie):  # or isinstance(p, Monster):
+                if isinstance(p, BlockDie):
                     self.die()
                 elif isinstance(p, BlockTeleport):
                     self.teleporting(p.goX, p.goY)
@@ -107,10 +107,9 @@ class Player(sprite.Sprite):
             running = False
         else:
             running = True
-        self.updatePos(left,right,up,running, platforms)
+        self.updatePos(left, right, up, running, platforms)
 
     def die(self):
-        time.wait(1000)
         self.teleporting(self.startX, self.startY)
 
     def teleporting(self, goX, goY):

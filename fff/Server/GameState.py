@@ -1,6 +1,7 @@
 from fff.Server.player import Player
 
 
+# получаем и обновляем состояние игры
 class GameState:
     def __init__(self, ts, lvl, pl1, pl2):
         self.TimeStamp = ts
@@ -23,4 +24,4 @@ def UpdateGameState(Platforms, PreviousGamestate, ts, PlayerInput):
         PreviousGamestate.pl1.update(PlayerInput.InputString, Platforms)
     if PlayerInput.Number == 1:
         PreviousGamestate.pl2.update(PlayerInput.InputString, Platforms)
-    return GameState(ts, Platforms,PreviousGamestate.pl1, PreviousGamestate.pl2)
+    return GameState(ts, Platforms, PreviousGamestate.pl1, PreviousGamestate.pl2)
